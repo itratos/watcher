@@ -17,7 +17,7 @@ import (
 func main() {
 	interval := flag.String("interval", "100ms", "watcher poll interval")
 	recursive := flag.Bool("recursive", true, "watch folders recursively")
-	dotfiles := flag.Bool("dotfiles", true, "watch dot files")
+	dotfiles := flag.Bool("dotfiles", true, "watch hidden files")
 	cmd := flag.String("cmd", "", "command to run when an event occurs")
 	startcmd := flag.Bool("startcmd", false, "run the command when watcher starts")
 	listFiles := flag.Bool("list", false, "list watched files on start")

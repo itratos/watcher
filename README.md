@@ -20,7 +20,7 @@ Options:
   -cmd string
     	command to run when an event occurs
   -dotfiles
-    	watch dot files (default true)
+    	watch hidden files (default true)
   -ignore string
         comma separated list of paths to ignore
   -interval string
