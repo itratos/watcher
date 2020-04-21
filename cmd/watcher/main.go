@@ -24,8 +24,17 @@ func main() {
 	stdinPipe := flag.Bool("pipe", false, "pipe event's info to command's stdin")
 	keepalive := flag.Bool("keepalive", false, "keep alive when a cmd returns code != 0")
 	ignore := flag.String("ignore", "", "comma separated list of paths to ignore")
+	version := flag.Bool("version", false, "prints current version")
+	flag.BoolVar(version, "v", false, "prints current version")
 
 	flag.Parse()
+
+	const CmdVersion = "2020-04-21_2231" // date +%F_%H%M
+
+	if *version {
+		fmt.Println(CmdVersion)
+		os.Exit(0)
+	}
 
 	// Retrieve the list of files and folders.
 	files := flag.Args()
