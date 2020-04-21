@@ -10,7 +10,7 @@ go get -u github.com/dideler/watcher
 
 ## Executable
 
-`watcher` comes with a CLI command which is installed when using the `go get` command from above.
+The `watcher` CLI command is installed when using the `go get` command from above.
 
 ```
 Usage: watcher [OPTS] [FILES]
