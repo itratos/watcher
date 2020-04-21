@@ -5,7 +5,7 @@ import (
 	"log"
 	"time"
 
-	"github.com/radovskyb/watcher"
+	"github.com/dideler/watcher"
 )
 
 func main() {
