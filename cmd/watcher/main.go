@@ -19,7 +19,7 @@ func main() {
 
 	interval := flags.String("interval", "100ms", "watcher poll interval")
 	recursive := flags.Bool("recursive", true, "watch folders recursively")
-	dotfiles := flags.Bool("dotfiles", true, "watch hidden files")
+	allfiles := flags.Bool("all", false, "watch all files, including dotfiles")
 	cmd := flags.String("cmd", "", "command to run when an event occurs")
 	startcmd := flags.Bool("startcmd", false, "run the command when watcher starts")
 	listFiles := flags.Bool("list", false, "list watched files on start")
@@ -75,7 +75,7 @@ func main() {
 
 	// Create a new Watcher with the specified options.
 	w := watcher.New()
-	w.IgnoreHiddenFiles(!*dotfiles)
+	w.IgnoreHiddenFiles(!*allfiles)
 
 	// Get any of the paths to ignore.
 	ignoredPaths := strings.Split(*ignore, ",")
