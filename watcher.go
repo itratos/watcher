@@ -88,7 +88,7 @@ func (e Event) String() string {
 	if e.IsDir() {
 		pathType = "DIRECTORY"
 	}
-	return fmt.Sprintf("%s %q %s [%s]", pathType, e.Name(), e.Op, e.Path)
+	return fmt.Sprintf("%s %s %q %s", e.Op, pathType, e.Name(), e.Path)
 }
 
 // FilterFileHookFunc is a function that is called to filter files during listings.
