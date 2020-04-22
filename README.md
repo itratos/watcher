@@ -13,16 +13,20 @@ go get -u github.com/dideler/watcher/...
 The `watcher` CLI command is installed when using the `go get` command from above.
 
 ```
-Usage: watcher [OPTS] [FILES]
+USAGE:
+  watcher [OPTIONS] [PATHS]
 
-Options:
-
+OPTIONS:
+  -a
+  -all
+    	watch all files, including dotfiles
   -cmd string
     	command to run when an event occurs
-  -dotfiles
-    	watch hidden files (default true)
+  -h
+  -help
+    	prints this help
   -ignore string
-        comma separated list of paths to ignore
+    	comma separated list of paths to ignore
   -interval string
     	watcher poll interval (default "100ms")
   -keepalive
@@ -31,10 +35,14 @@ Options:
     	list watched files on start
   -pipe
     	pipe event's info to command's stdin
+  -r
   -recursive
-    	watch folders recursively (default true)
+    	watch directories recursively
   -startcmd
     	run the command when watcher starts
+  -v
+  -version
+    	prints current version
 ```
 
-Without any arguments, it watches the current directory recursively for changes and notifies any events that occur.
+Without any arguments, it watches the current directory for changes and notifies on any events that occur.
