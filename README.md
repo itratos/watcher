@@ -5,7 +5,7 @@ Forked from https://github.com/radovskyb/watcher to pull in updates and modify f
 ## Installation
 
 ```shell
-go get -u github.com/dideler/watcher
+go get -u github.com/dideler/watcher/...
 ```
 
 ## Executable
