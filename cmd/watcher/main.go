@@ -27,8 +27,11 @@ func main() {
 	keepalive := flags.Bool("keepalive", false, "keep alive when a cmd returns code != 0")
 	ignore := flags.String("ignore", "", "comma separated list of paths to ignore")
 	version := flags.Bool("version", false, "prints current version")
-	flags.BoolVar(version, "v", false, "")
 	help := flags.Bool("help", false, "prints this help")
+
+	flags.BoolVar(recursive, "r", false, "")
+	flags.BoolVar(allfiles, "a", false, "")
+	flags.BoolVar(version, "v", false, "")
 	flags.BoolVar(help, "h", false, "")
 
 	flags.Usage = func() {
