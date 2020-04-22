@@ -25,7 +25,7 @@ func main() {
 	keepalive := flag.Bool("keepalive", false, "keep alive when a cmd returns code != 0")
 	ignore := flag.String("ignore", "", "comma separated list of paths to ignore")
 	version := flag.Bool("version", false, "prints current version")
-	flag.BoolVar(version, "v", false, "prints current version")
+	flag.BoolVar(version, "v", false, "")
 
 	flag.Parse()
 
