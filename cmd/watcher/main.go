@@ -28,6 +28,8 @@ func main() {
 	ignore := flags.String("ignore", "", "comma separated list of paths to ignore")
 	version := flags.Bool("version", false, "prints current version")
 	flags.BoolVar(version, "v", false, "")
+	help := flags.Bool("help", false, "prints this help")
+	flags.BoolVar(help, "h", false, "")
 
 	flags.Usage = func() {
 		fmt.Fprintf(flags.Output(), "USAGE:\n  %s [OPTIONS] [PATHS]\n\nOPTIONS:\n", flags.Name())
@@ -40,6 +42,12 @@ func main() {
 
 	if *version {
 		fmt.Println(CmdVersion)
+		os.Exit(0)
+	}
+
+	if *help {
+		flags.SetOutput(os.Stdout)
+		flags.Usage()
 		os.Exit(0)
 	}
 
