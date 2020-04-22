@@ -15,19 +15,26 @@ import (
 )
 
 func main() {
-	interval := flag.String("interval", "100ms", "watcher poll interval")
-	recursive := flag.Bool("recursive", true, "watch folders recursively")
-	dotfiles := flag.Bool("dotfiles", true, "watch hidden files")
-	cmd := flag.String("cmd", "", "command to run when an event occurs")
-	startcmd := flag.Bool("startcmd", false, "run the command when watcher starts")
-	listFiles := flag.Bool("list", false, "list watched files on start")
-	stdinPipe := flag.Bool("pipe", false, "pipe event's info to command's stdin")
-	keepalive := flag.Bool("keepalive", false, "keep alive when a cmd returns code != 0")
-	ignore := flag.String("ignore", "", "comma separated list of paths to ignore")
-	version := flag.Bool("version", false, "prints current version")
-	flag.BoolVar(version, "v", false, "")
+	flags := flag.NewFlagSet("watcher", flag.ExitOnError)
 
-	flag.Parse()
+	interval := flags.String("interval", "100ms", "watcher poll interval")
+	recursive := flags.Bool("recursive", true, "watch folders recursively")
+	dotfiles := flags.Bool("dotfiles", true, "watch hidden files")
+	cmd := flags.String("cmd", "", "command to run when an event occurs")
+	startcmd := flags.Bool("startcmd", false, "run the command when watcher starts")
+	listFiles := flags.Bool("list", false, "list watched files on start")
+	stdinPipe := flags.Bool("pipe", false, "pipe event's info to command's stdin")
+	keepalive := flags.Bool("keepalive", false, "keep alive when a cmd returns code != 0")
+	ignore := flags.String("ignore", "", "comma separated list of paths to ignore")
+	version := flags.Bool("version", false, "prints current version")
+	flags.BoolVar(version, "v", false, "")
+
+	flags.Usage = func() {
+		fmt.Fprintf(flags.Output(), "USAGE:\n  %s [OPTIONS] [PATHS]\n\nOPTIONS:\n", flags.Name())
+		flags.PrintDefaults()
+	}
+
+	flags.Parse(os.Args[1:])
 
 	const CmdVersion = "2020-04-21_2231" // date +%F_%H%M
 
