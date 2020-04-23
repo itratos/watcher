@@ -55,7 +55,7 @@ func main() {
 	}
 
 	// Retrieve the list of files and folders.
-	files := flag.Args()
+	files := flags.Args()
 
 	// If no files/folders were specified, watch the current directory.
 	if len(files) == 0 {
