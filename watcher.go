@@ -77,9 +77,17 @@ type Event struct {
 	os.FileInfo
 }
 
-// String returns a string depending on what type of event occurred and the
-// file name associated with the event.
+// String returns a string of the filename associated with the event.
 func (e Event) String() string {
+	if e.FileInfo == nil {
+		return "???"
+	}
+
+	return fmt.Sprintf("%q", e.Name())
+}
+
+// VerboseString returns a string representation of the event that occurred.
+func (e Event) VerboseString() string {
 	if e.FileInfo == nil {
 		return "???"
 	}

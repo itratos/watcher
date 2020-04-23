@@ -17,6 +17,7 @@ import (
 func main() {
 	flags := flag.NewFlagSet("watcher", flag.ExitOnError)
 
+	verbose := flags.Bool("verbose", false, "verbose event notifications")
 	interval := flags.String("interval", "100ms", "watcher poll interval")
 	recursive := flags.Bool("recursive", false, "watch directories recursively")
 	allfiles := flags.Bool("all", false, "watch all files, including dotfiles")
@@ -102,14 +103,21 @@ func main() {
 		for {
 			select {
 			case event := <-w.Event:
+				var eventStr string
+				if *verbose {
+					eventStr = event.VerboseString()
+				} else {
+					eventStr = event.String()
+				}
+
 				// Print the event's info.
-				fmt.Println(event)
+				fmt.Println(eventStr)
 
 				// Run the command if one was specified.
 				if *cmd != "" {
 					c := exec.Command(cmdName, cmdArgs...)
 					if *stdinPipe {
-						c.Stdin = strings.NewReader(event.String())
+						c.Stdin = strings.NewReader(eventStr)
 					} else {
 						c.Stdin = os.Stdin
 					}
