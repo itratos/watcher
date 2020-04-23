@@ -30,10 +30,10 @@ func main() {
 	version := flags.Bool("version", false, "prints current version")
 	help := flags.Bool("help", false, "prints this help")
 
-	flags.BoolVar(recursive, "r", false, "")
-	flags.BoolVar(allfiles, "a", false, "")
-	flags.BoolVar(version, "v", false, "")
-	flags.BoolVar(help, "h", false, "")
+	flags.BoolVar(recursive, "r", false, "watch directories recursively")
+	flags.BoolVar(allfiles, "a", false, "watch all files, including dotfiles")
+	flags.BoolVar(version, "v", false, "prints current version")
+	flags.BoolVar(help, "h", false, "prints this help")
 
 	flags.Usage = func() {
 		fmt.Fprintf(flags.Output(), "USAGE:\n  %s [OPTIONS] [PATHS]\n\nOPTIONS:\n", flags.Name())
