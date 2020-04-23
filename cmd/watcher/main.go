@@ -42,7 +42,7 @@ func main() {
 
 	flags.Parse(os.Args[1:])
 
-	const CmdVersion = "2020-04-21_2231" // date +%F_%H%M
+	const CmdVersion = "2020-04-23_1800" // date +%F_%H%M
 
 	if *version {
 		fmt.Println(CmdVersion)
