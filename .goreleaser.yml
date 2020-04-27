@@ -7,6 +7,7 @@ builds:
       - CGO_ENABLED=0
 archives:
   - # Default archive
+    name_template: '{{ .ProjectName }}_{{ .Os }}_{{ .Arch }}'
     format: tar.gz
     format_overrides:
       - goos: windows
