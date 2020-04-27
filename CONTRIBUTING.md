@@ -10,5 +10,5 @@
 
 1. Install [goreleaser](https://github.com/goreleaser/goreleaser)
 2. Update watcher's semantic version and push a new git tag
-3. From the project's root directory, run: `goreleaser --skip-publish`
+3. Test the release; from the project's root directory, run: `goreleaser --snapshot --skip-publish --rm-dist`
 4. If the dry run was succesful, publish the release: `goreleaser`
