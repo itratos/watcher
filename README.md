@@ -4,6 +4,9 @@ Forked from https://github.com/radovskyb/watcher to pull in updates and modify f
 
 ## Installation
 
+Binaries available at https://github.com/dideler/watcher/releases
+
+Or install with Go
 ```shell
 go get -u github.com/dideler/watcher/...
 ```
