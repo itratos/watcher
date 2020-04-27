@@ -77,11 +77,11 @@ func TestEventString(t *testing.T) {
 		{nil, "???"},
 		{
 			&fileInfo{name: "f1", dir: true},
-			"DIRECTORY \"f1\" CREATE [/fake/path]",
+			"\"f1\"",
 		},
 		{
 			&fileInfo{name: "f2", dir: false},
-			"FILE \"f2\" CREATE [/fake/path]",
+			"\"f2\"",
 		},
 	}
 
@@ -974,14 +974,14 @@ func TestEventChmodFile(t *testing.T) {
 
 func TestRegexFilterHook(t *testing.T) {
 	type args struct {
-		info     fileInfo
+		info fileInfo
 	}
 	tests := []struct {
-		name string
-		args args
+		name     string
+		args     args
 		wantSkip bool
 	}{
-		{name:"shouldKeepFileMatchingRegex", args: args{info: fileInfo{name: "dd.txt"}}, wantSkip: false},
+		{name: "shouldKeepFileMatchingRegex", args: args{info: fileInfo{name: "dd.txt"}}, wantSkip: false},
 		{name: "shouldIgnoreFileNotMatchingRegex", args: args{info: fileInfo{name: "dd.md"}}, wantSkip: true},
 	}
 	for _, tt := range tests {
