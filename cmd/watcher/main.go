@@ -42,7 +42,7 @@ func main() {
 
 	flags.Parse(os.Args[1:])
 
-	const CmdVersion = "v2.0.0"
+	const CmdVersion = "v2.0.1"
 
 	if *version {
 		fmt.Println(CmdVersion)
