@@ -1,21 +1,27 @@
 # Docs at http://goreleaser.com
 builds:
-- env:
-  - CGO_ENABLED=0
-archives:
-- replacements:
-    darwin: Darwin
+  - env:
+      - CGO_ENABLED=0
+archive:
+  format: tar.gz
+  format_overrides:
+    - goos: windows
+      format: zip
+  replacements:
+    darwin: macOS
     linux: Linux
     windows: Windows
-    386: i386
-    amd64: x86_64
+    386: 32-bit
+    amd64: 64-bit
+  files:
+    - none*
 checksum:
   name_template: 'checksums.txt'
 snapshot:
-  name_template: "{{ .Tag }}-next"
+  name_template: '{{ .Tag }}-next'
 changelog:
   sort: asc
   filters:
     exclude:
-    - '^docs:'
-    - '^test:'
+      - '^docs:'
+      - '^test:'
