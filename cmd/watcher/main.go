@@ -11,7 +11,7 @@ import (
 	"time"
 	"unicode"
 
-	"github.com/dideler/watcher"
+	"github.com/itratos/watcher"
 )
 
 func main() {
