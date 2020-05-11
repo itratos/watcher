@@ -3,6 +3,7 @@ package main
 import (
 	"flag"
 	"fmt"
+	"github.com/itratos/watcher/watcher"
 	"log"
 	"os"
 	"os/exec"
@@ -10,7 +11,6 @@ import (
 	"strings"
 	"time"
 	"unicode"
-	"watcher/watcher"
 )
 
 func main() {
