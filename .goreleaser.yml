@@ -1,7 +1,7 @@
 # Docs at http://goreleaser.com
 builds:
   - id: watcher
-    main: ./main.go
+    main: ./cmd/watcher/main.go
     binary: watcher
     env:
       - CGO_ENABLED=0
