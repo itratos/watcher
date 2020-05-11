@@ -10,8 +10,7 @@ import (
 	"strings"
 	"time"
 	"unicode"
-
-	"github.com/itratos/watcher"
+	"watcher/watcher"
 )
 
 func main() {

@@ -1,3 +1,3 @@
-module github.com/itratos/watcher
+module watcher
 
 go 1.14
