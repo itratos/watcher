@@ -686,8 +686,7 @@ func (w *Watcher) ScanNow() error {
 	}
 }
 
-func (w *Watcher) pollEvents(files map[string]os.FileInfo, evt chan Event,
-	cancel chan struct{}) {
+func (w *Watcher) pollEvents(files map[string]os.FileInfo, evt chan Event, cancel chan struct{}) {
 	w.mu.Lock()
 	defer w.mu.Unlock()
 
