@@ -7,6 +7,13 @@
 1. Run tests with `go test`
 1. Build a dev executable with `cd cmd/watcher/ && go build .`
 
+## Update
+
+Since this is a fork, it can benefit from certain upstream changes.
+
+If there's a commit or merge request that's relevant, append ".patch" to the URL
+and apply it to the fork as `curl -sL $PATCH_URL | git am`
+
 ## Release
 
 1. Install [goreleaser](https://github.com/goreleaser/goreleaser)
