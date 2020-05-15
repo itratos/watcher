@@ -49,3 +49,7 @@ OPTIONS:
 ```
 
 Without any arguments, it watches the current directory for changes and notifies on any events that occur.
+
+## Maintenance
+
+See [contributing guide](CONTRIBUTING.md)
